@@ -1,0 +1,23 @@
+with open("D:/Проекты/IUL_fill/test.txt") as file:
+    spisok = file.readlines()
+
+flag = 1
+for i in range (0,len(spisok), 4):
+
+    a, b = spisok[i].rstrip('\n').split(":")
+    c, d = spisok[i+1].rstrip('\n').split(":")
+    f = spisok[i+2].rstrip('\n')
+    test = spisok[i+3].rstrip('\n')
+    a, b, c, d, f = int(a), int(b), int(c), int(d), int(f)
+    test = int (test)
+
+    win = goal(a, b, c, d, f)
+    if win < 0:
+        answ = 0
+    else:
+        answ = win
+    if answ == test:
+        print (flag, "OK")
+    else:
+        print(flag, "Fail")
+    flag += 1
